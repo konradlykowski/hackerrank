@@ -48,15 +48,15 @@ public class QuickSort {
             }
         }
         int index = start;
-        for (int i = 0; i < prefix.size(); i++) {
-            arr[index] = prefix.get(i);
+        for (Integer i : prefix) {
+            arr[index] = i;
             index++;
         }
         arr[index] = pivotValue;
         int pivotIndex = index;
         index++;
-        for (int i = 0; i < sufix.size(); i++) {
-            arr[index] = sufix.get(i);
+        for (Integer i : sufix) {
+            arr[index] = i;
             index++;
         }
         return pivotIndex;
