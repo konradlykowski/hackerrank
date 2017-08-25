@@ -31,49 +31,13 @@ public class LowestCommonAncestor {
     }
 
 
-    static Node lca(Node root, int v1, int v2) {
-        if (root == null) {
-            return null;
+    static Node lca(Node n, int v1, int v2) {
+        while(n!=null)
+        {
+            if(v1>n.data && v2>n.data) n=n.right;
+            else if(v1<n.data && v2<n.data) n=n.left;
+            else return n;
         }
-        LinkedList<Node> path1 = new LinkedList();
-        findPath(root, v1, path1);
-        LinkedList<Node> path2 = new LinkedList();
-        findPath(root, v2, path2);
-        Node result = mergePaths(path1, path2);
-        if (result == null) {
-            return root;
-        }
-        return result;
-    }
-
-    static boolean findPath(Node root, int v1, LinkedList<Node> path) {
-        if (root == null) {
-            return false;
-        }
-        if (root.data == v1) {
-            return true;
-        }
-        boolean res1 = findPath(root.left, v1, path);
-        if (res1) {
-            path.addLast(root.left);
-            return true;
-        }
-        res1 = findPath(root.right, v1, path);
-        if (res1) {
-            path.addLast(root.right);
-            return true;
-        }
-        return false;
-    }
-
-    static Node mergePaths(LinkedList<Node> path1, LinkedList<Node> path2) {
-        Iterator<Node> path1iter = path1.iterator();
-        while (path1iter.hasNext()) {
-            Node current = path1iter.next();
-            if (path2.contains(current)) {// O(n)!
-                return current;
-            }
-        }
-        return null;
+        return n;
     }
 }
