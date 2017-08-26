@@ -1,7 +1,5 @@
 You are given pointer to the root of the binary search tree and two values  and . You need to return the lowest common ancestor (LCA) of  and  in the binary search tree.
 
-image
-
 In the above example, the lowest common ancestor of the nodes  and  is the node , as  is the lowest common node which has both the nodes  and  as it's descendants.
 
 You only need to complete the function.
